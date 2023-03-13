@@ -39,6 +39,7 @@ class Solution:
                 return False
         return True
 
+    # TODO: Follow up: Could you solve it without converting the integer to a string?
 
 def _main():
     print(Solution.isPalindrome(1234321))

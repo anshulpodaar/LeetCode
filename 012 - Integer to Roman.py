@@ -35,8 +35,8 @@ class Solution:
 
 
 def _main():
-    print("\nWIP - this is not my solution, but copied from discussions\n")
-    # TODO: Solve on my own
+    print("\nWIP - not solved yet\n")
+    # TODO: Solve it
 
     Solution.intToRoman(4) # Roman: IV --> Integer: 4
     Solution.intToRoman(9) # Roman: IX --> Integer: 9
