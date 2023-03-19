@@ -2,6 +2,7 @@
 https://leetcode.com/problems/integer-to-roman/
 """
 
+
 class Solution:
     @staticmethod
     def intToRoman(v: int) -> str:
@@ -17,7 +18,6 @@ class Solution:
 
         print(f'Integer: {result} --> Roman: {s}')
         return result
-
 
     @staticmethod
     def romanToInt(roman: str) -> int:
@@ -38,14 +38,14 @@ def _main():
     print("\nWIP - not solved yet\n")
     # TODO: Solve it
 
-    Solution.intToRoman(4) # Roman: IV --> Integer: 4
-    Solution.intToRoman(9) # Roman: IX --> Integer: 9
-    Solution.intToRoman(8) # Roman: VIII --> Integer: 8
-    Solution.intToRoman(24) # Roman: XXIV --> Integer: 24
-    Solution.intToRoman(42) # Roman: XLII --> Integer: 42
-    Solution.intToRoman(40) # Roman: XL --> Integer: 40
-    Solution.intToRoman(45) # Roman: XLV --> Integer: 45
-    Solution.intToRoman(2479) # Roman: MMCDLXXIX --> Integer: 2479
+    Solution.intToRoman(4)  # Roman: IV --> Integer: 4
+    Solution.intToRoman(9)  # Roman: IX --> Integer: 9
+    Solution.intToRoman(8)  # Roman: VIII --> Integer: 8
+    Solution.intToRoman(24)  # Roman: XXIV --> Integer: 24
+    Solution.intToRoman(42)  # Roman: XLII --> Integer: 42
+    Solution.intToRoman(40)  # Roman: XL --> Integer: 40
+    Solution.intToRoman(45)  # Roman: XLV --> Integer: 45
+    Solution.intToRoman(2479)  # Roman: MMCDLXXIX --> Integer: 2479
 
 
 if __name__ == '__main__':

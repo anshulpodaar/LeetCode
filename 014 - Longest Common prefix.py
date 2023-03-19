@@ -21,10 +21,11 @@ strs[i] consists of only lowercase English letters.
 
 from typing import List
 
+
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         lcp = ""
-        i=0
+        i = 0
         min_word_length = min([len(item) for item in strs])
         flag = True
         while flag and i < min_word_length:
@@ -38,9 +39,10 @@ class Solution:
 
 
 def _main():
-    print(Solution.longestCommonPrefix(Solution(), strs = ["flower","flow","flight"]))
-    print(Solution.longestCommonPrefix(Solution(), strs = ["dog","racecar","car"]))
-    print(Solution.longestCommonPrefix(Solution(), strs = ["dog","doggo","doggie"]))
+    print(Solution.longestCommonPrefix(Solution(), strs=["flower", "flow", "flight"]))
+    print(Solution.longestCommonPrefix(Solution(), strs=["dog", "racecar", "car"]))
+    print(Solution.longestCommonPrefix(Solution(), strs=["dog", "doggo", "doggie"]))
+
 
 if __name__ == "__main__":
     _main()

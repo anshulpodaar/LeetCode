@@ -45,6 +45,6 @@ Both list1 and list2 are sorted in non-decreasing order.
 # if __name__ == "__main__":
 #     _main()
 
-list1 = [1,2,4]
-list2 = [1,3,4]
+list1 = [1, 2, 4]
+list2 = [1, 3, 4]
 print([*list1, *list2])
