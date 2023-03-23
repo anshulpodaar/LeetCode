@@ -30,14 +30,17 @@ from math import floor, log10
 class Solution:
     @staticmethod
     def isPalindrome(x: int or None) -> bool:
+        # TODO: inefficient
         x_str = str(x)
         while len(x_str) > 1:
             if x_str[0] == x_str[-1]:
                 x_str = x_str[1:-1]
                 if len(x_str) == 0:
                     return True
-                x_new = int(x_str)
-                Solution.isPalindrome(x_new)
+                # # TODO: unnecessary
+                # x_new = int(x_str)
+                # # TODO: not needed recursion
+                # Solution.isPalindrome(x_new)
             else:
                 return False
         return True
