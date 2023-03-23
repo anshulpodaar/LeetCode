@@ -24,6 +24,8 @@ Constraints:
 Follow up: Could you solve it without converting the integer to a string?
 """
 
+from math import floor, log10
+
 
 class Solution:
     @staticmethod
@@ -41,14 +43,48 @@ class Solution:
         return True
 
     # TODO: Follow up: Could you solve it without converting the integer to a string?
+    @staticmethod
+    def isPalindrome_2(x: int) -> int:
+        num = x
+        if x:
+            no_of_digits = floor(log10(abs(x))) + 1
+        else:
+            return False
+        power = no_of_digits - 1
+        y = 0
+        while x != 0:
+            y = y + ((x%10) * 10**power)
+            x = int(x/10)
+            power = power - 1
+        if y == num:
+            return True
+        else:
+            return False
 
 
 def _main():
     print(Solution.isPalindrome(1234321))
+    print(Solution.isPalindrome(-1234321))
     print(Solution.isPalindrome(12344321))
-    print(Solution.isPalindrome(1234564321))
+    print(Solution.isPalindrome(12345654321))
     print(Solution.isPalindrome(1))
     print(Solution.isPalindrome(None))
+
+    print()
+    # print(reverseInt(1))
+    # print(reverseInt(12))
+    # print(reverseInt(123))
+    # print(reverseInt(1234))
+    # print(reverseInt(12345))
+    # print(reverseInt(-12345))
+    print()
+
+    print(Solution.isPalindrome_2(1234321))
+    print(Solution.isPalindrome_2(-1234321))
+    print(Solution.isPalindrome_2(12344321))
+    print(Solution.isPalindrome_2(12345654321))
+    print(Solution.isPalindrome_2(1))
+    print(Solution.isPalindrome_2(None))
 
 
 if __name__ == '__main__':
