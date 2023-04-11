@@ -22,29 +22,39 @@ The number of nodes in both lists is in the range [0, 50].
 Both list1 and list2 are sorted in non-decreasing order.
 """
 
+import typing, typing.Optional
+
 
 # Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
-#
-#
-# class Solution:
-#     def mergeTwoLists(self, list1:[ListNode] = None, list2:[ListNode] = None) -> [ListNode]:
-#         final_list = list1 + list2
-#         return final_list
-#
-#
-# def _main():
-#     test = Solution()
-#     print(test.mergeTwoLists(list1 = [1,2,4], list2 = [1,3,4]))
-#     print(test.mergeTwoLists(list1 = [], list2 = []))
-#     print(test.mergeTwoLists(list1 = [], list2 = [0]))
-#
-# if __name__ == "__main__":
-#     _main()
+class ListNode:
+    def __init__(self, val:int = 0, next: Optional[int] = None):
+        self.val = val
+        self.next = next
 
-list1 = [1, 2, 4]
-list2 = [1, 3, 4]
-print([*list1, *list2])
+
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        list1
+        list2
+        final_list
+        return final_list_listnode
+
+
+
+
+def _main():
+    test = Solution()
+    print(test.mergeTwoLists(list1 = [1,2,4], list2 = [1,3,4]))
+    print(test.mergeTwoLists(list1 = [], list2 = []))
+    print(test.mergeTwoLists(list1 = [], list2 = [0]))
+    print(test.mergeTwoLists(list1=[2,5,6], list2=[1,3,5,7]))
+
+
+if __name__ == "__main__":
+    _main()
+
+# list1 = [1, 2, 4]
+# list2 = [1, 3, 4]
+# print([*list1, *list2])
+
+# TODO: not fixed yet
