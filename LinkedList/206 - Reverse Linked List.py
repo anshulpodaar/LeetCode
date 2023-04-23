@@ -55,6 +55,25 @@ class Solution:
         head = curr
         return head
 
+    # def reverseList_recursion(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    #     if head is None:
+    #         return None
+    #     elif head.next is None:
+    #         return head
+    #     prev = head
+    #     curr = head.next
+    #     temp = head.next.next
+    #     if temp:
+    #         curr.next = prev
+    #         prev = curr
+    #         curr = temp
+    #         temp = temp.next
+    #         self.reverseList_recursion(head)
+    #     curr.next = prev
+    #     head.next = None
+    #     head = curr
+    #     return head
+
 
 def _main():
     test = Solution()
@@ -86,5 +105,36 @@ def _main():
     test.print_list(ll4)
 
 
+# def _main_recursion():
+#     test = Solution()
+#     ll1 = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+#     ll2 = ListNode(1, ListNode(2))
+#     ll3 = None
+#     ll4 = ListNode(1)
+#
+#     test.print_list(ll1)
+#     ll1 = test.reverseList_recursion(ll1)
+#     test.print_list(ll1)
+#
+#     print()
+#
+#     test.print_list(ll2)
+#     ll2 = test.reverseList_recursion(ll2)
+#     test.print_list(ll2)
+#
+#     print()
+#
+#     test.print_list(ll3)
+#     ll3 = test.reverseList_recursion(ll3)
+#     test.print_list(ll3)
+#
+#     print()
+#
+#     test.print_list(ll4)
+#     ll3 = test.reverseList_recursion(ll4)
+#     test.print_list(ll4)
+
+
 if __name__ == "__main__":
     _main()
+    # _main_recursion()
