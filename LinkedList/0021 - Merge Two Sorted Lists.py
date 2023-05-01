@@ -125,7 +125,7 @@ def _main():
     test.print_list(merged_list)
 
     print()
-    print(f"---------- Iteration 4 ----------")
+    print(f"---------- Iteration 5 ----------")
     list1 = ListNode(-10, ListNode(-9, ListNode(-6, ListNode(-4, ListNode(1, ListNode(9, ListNode(9)))))))
     list2 = ListNode(-5, ListNode(-3, ListNode(0, ListNode(7, ListNode(8, ListNode(8))))))
     test.print_list(list1)
