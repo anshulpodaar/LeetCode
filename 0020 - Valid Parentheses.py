@@ -61,3 +61,72 @@ def _main():
 
 if __name__ == "__main__":
     _main()
+    print("\n#####################\n")
+
+
+##############################################################################################
+
+# import typing
+
+class Stack:
+    def __init__(self):
+        self.stack_list = []
+
+    def print_stack(self):
+        for i in range(len(self.stack_list) - 1, -1, -1):
+            print(self.stack_list[i])
+
+    def is_empty(self):
+        return len(self.stack_list) == 0
+
+    def peek(self):
+        if self.is_empty():
+            return None
+        else:
+            return self.stack_list[-1]
+
+    def size(self):
+        return len(self.stack_list)
+
+    def push(self, value):
+        self.stack_list.append(value)
+
+    def pop(self):
+        if self.is_empty():
+            return None
+        else:
+            return self.stack_list.pop()
+
+
+# WRITE IS_BALANCED_PARENTHESES FUNCTION HERE #
+def is_balanced_parentheses(s: str) -> bool:
+    parentheses_map = {")": "(", "}": "{", "]": "["}
+    check_list = Stack()
+    for item in s:
+        if item in parentheses_map.values():
+            check_list.push(item)
+        elif item in parentheses_map.keys():
+            if check_list.is_empty() or check_list.pop() != parentheses_map[item]:
+                return False
+    if check_list.is_empty():
+        return True
+    else:
+        return False
+
+
+###############################################
+
+
+balanced_parentheses = '((()))'
+unbalanced_parentheses = '((())))'
+
+print(is_balanced_parentheses(balanced_parentheses))
+print(is_balanced_parentheses(unbalanced_parentheses))
+
+"""
+    EXPECTED OUTPUT:
+    ----------------
+    True
+    False
+
+"""
