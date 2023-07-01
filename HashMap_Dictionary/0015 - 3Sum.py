@@ -36,23 +36,25 @@ class Solution:
     @staticmethod
     def twoSum(nums: list[int], target: int) -> list[int]:
         value = None
-        for index_num, num in enumerate(nums):
+        nums_copy = nums.copy()
+        for index_num, num in enumerate(nums_copy):
             residual = target - num
-            nums[index_num] = None
-            if residual in nums:
-                index_residual = nums.index(residual)
+            nums_copy[index_num] = None
+            if residual in nums_copy:
+                index_residual = nums_copy.index(residual)
                 value = list((index_num, index_residual))
                 break
-        print(value)
+        # print(value)
         return value
 
     @staticmethod
     def threeSum(nums: List[int]) -> List[List[int]]:
         sol = []
         for num in nums:
+            nums_copy = nums.copy()
             residual = 0 - num
-            nums.remove(num)
-            two_sum = Solution.twoSum(nums, residual)
+            nums_copy.remove(num)
+            two_sum = Solution.twoSum(nums_copy, residual)
             if two_sum is not None:
                 sol.append([num, nums[two_sum[0]], nums[two_sum[1]]])
         return sol
@@ -73,15 +75,14 @@ class Solution:
 def _main():
     nums = [-1, 0, 1, 2, -1, -4]
     print(Solution.threeSum(nums))
-    nums = [0, 1, 1]
-    print(Solution.threeSum(nums))
-    nums = [0, 0, 0]
-    print(Solution.threeSum(nums))
+    # nums = [0, 1, 1]
+    # print(Solution.threeSum(nums))
+    # nums = [0, 0, 0]
+    # print(Solution.threeSum(nums))
 
 
 if __name__ == "__main__":
     _main()
-
 
 
 
