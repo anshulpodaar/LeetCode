@@ -35,8 +35,8 @@ class Solution:
         value = None
         for index_num, num in enumerate(nums):
             residual = target - num
-            nums[index_num] = None
-            if residual in nums:
+            # nums[index_num] = None
+            if residual in nums and nums.index(residual) != index_num:
                 index_residual = nums.index(residual)
                 value = list((index_num, index_residual))
                 break
