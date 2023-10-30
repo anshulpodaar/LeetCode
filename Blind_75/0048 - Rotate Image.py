@@ -40,17 +40,18 @@ class Solution:
         print(f"Output: {matrix} \n\n")
         return None
 
-    def rotate2(self, matrix: List[List[int]]) -> None:
-        """
-        Do not return anything, modify matrix in-place instead.
-        """
-        new_matrix = copy.deepcopy(matrix)
+
+    @classmethod
+    def transpose(self, matrix: List[List[int]]) -> None:
+        print(f"Input: {matrix}")
+        matrix = [[row[i] for row in matrix] for i in range(len(matrix[0]))]
         for i in range(len(matrix)):
-            curr_array = matrix[i]
-            for j in range(len(curr_array)):
-                new_matrix[j][-i-1] = curr_array[j]
-        print(f"Input: {matrix} \nOutput: {new_matrix} \n\n")
-        matrix = new_matrix
+            for j in range(int(len(matrix) / 2)):
+                temp = copy.deepcopy(matrix[i][j])
+                matrix[i][j] = copy.deepcopy(matrix[i][-j - 1])
+                matrix[i][-j - 1] = copy.deepcopy(temp)
+                # matrix[i][j], matrix[i][-j-1] = matrix[i][-j-1], matrix[i][j]
+        print(f"Output: {matrix} \n\n")
         return None
 
 
@@ -58,7 +59,7 @@ def _main():
     # Solution.rotate(matrix=[[1,2],[3,4]])
     # Solution.rotate(matrix=[[1,2,3],[4,5,6],[7,8,9]])
     # Solution.rotate(matrix=[[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]])
-    Solution.rotate(matrix=[[11, 12, 13, 14],
+    Solution.transpose(matrix=[[11, 12, 13, 14],
                             [21, 22, 23, 24],
                             [31, 32, 33, 34],
                             [41, 42, 43, 44]])
