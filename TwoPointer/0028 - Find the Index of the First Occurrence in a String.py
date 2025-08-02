@@ -1,78 +1,86 @@
 """
-Given two strings needle and haystack, return the index of the first occurrence of needle in haystack,
-or -1 if needle is not part of haystack.
+You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit
+of the integer. The digits are ordered from most significant to least significant in left-to-right order.
+The large integer does not contain any leading 0's.
+Increment the large integer by one and return the resulting array of digits.
 
 Example 1:
-Input: haystack = "sadbutsad", needle = "sad"
-Output: 0
-Explanation: "sad" occurs at index 0 and 6.
-The first occurrence is at index 0, so we return 0.
+Input: digits = [1,2,3]
+Output: [1,2,4]
+Explanation: The array represents the integer 123.
+Incrementing by one gives 123 + 1 = 124.
+Thus, the result should be [1,2,4].
 
 Example 2:
-Input: haystack = "leetcode", needle = "leeto"
-Output: -1
-Explanation: "leeto" did not occur in "leetcode", so we return -1.
+Input: digits = [4,3,2,1]
+Output: [4,3,2,2]
+Explanation: The array represents the integer 4321.
+Incrementing by one gives 4321 + 1 = 4322.
+Thus, the result should be [4,3,2,2].
 
+Example 3:
+Input: digits = [9]
+Output: [1,0]
+Explanation: The array represents the integer 9.
+Incrementing by one gives 9 + 1 = 10.
+Thus, the result should be [1,0].
 
 Constraints:
-1 <= haystack.length, needle.length <= 104
-haystack and needle consist of only lowercase English characters.
+1 <= digits.length <= 100
+0 <= digits[i] <= 9
+digits does not contain any leading 0's.
 """
+from typing import List
 
 
 class Solution:
     @classmethod
-    def strStr(self, haystack: str, needle: str) -> int:
-        len_needle = len(needle)
-        len_haystack = len(haystack)
-        if len_needle==0 or len_haystack==0:
-            return -1
-        if needle in haystack:
-            for i in range(len(haystack) - len(needle) + 1):
-                if haystack[i:i + len_needle] == needle:
-                    return i
-        return -1
+    def plus_one(self, digits: List[int]) -> List[int]:
+
+        n = len(digits)
+
+        while n >= 0:
+            if n == 0:
+                digits.insert(0, 1)
+                return digits
+            if digits[n - 1] != 9:
+                digits[n - 1] += 1
+                return digits
+            elif digits[n - 1] == 9:
+                digits[n - 1] = 0
+                n -= 1
+        return None
 
 
 def _main():
     Solution()
     my_test_cases = [
         {
-            'haystack': 'sadbutsad',
-            'needle': 'sad',
-            'expected': 0
+            'digits': [1, 2, 3],
+            'expected': [1, 2, 4]
         },
         {
-            'haystack': 'leetcode',
-            'needle': 'leeto',
-            'expected': -1
+            'digits': [4, 3, 2, 1],
+            'expected': [4, 3, 2, 2]
         },
         {
-            'haystack': '',
-            'needle': 'leeto',
-            'expected': -1
+            'digits': [9],
+            'expected': [1, 0]
         },
         {
-            'haystack': '',
-            'needle': '',
-            'expected': -1
+            'digits': [6, 9],
+            'expected': [7, 0]
         },
         {
-            'haystack': 'aaabbbccc',
-            'needle': 'bbb',
-            'expected': 3
-        },
-        {
-            'haystack': 'bbb',
-            'needle': 'aaabbbccc',
-            'expected': -1
+            'digits': [],
+            'expected': [1]
         },
     ]
 
     for i, test_case in enumerate(my_test_cases):
         print('\n--------------------------\n')
         print(f'Test case {i}: {test_case}')
-        result = Solution().strStr(haystack=test_case['haystack'], needle=test_case['needle'])
+        result = Solution().plus_one(digits=test_case['digits'])
         print(f'Result: {result}')
         try:
             assert result == test_case['expected']
