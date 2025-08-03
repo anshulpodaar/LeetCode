@@ -5,7 +5,7 @@
 
 class Solution:
     @classmethod
-    def my_func(self):
+    def my_func(cls):
         pass
 
 
