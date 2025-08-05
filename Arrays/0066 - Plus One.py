@@ -28,7 +28,7 @@ from typing import List, Tuple
 
 class Solution:
     @classmethod
-    def search_insert(self, nums: List[int], target: int) -> int:
+    def search_insert(cls, nums: List[int], target: int) -> int:
         left = 0
         right = len(nums) - 1
 
