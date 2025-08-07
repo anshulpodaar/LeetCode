@@ -1,4 +1,8 @@
+# tags: Array, Two Pointer
+
 """
+27. Remove Element
+
 Given an integer array nums and an integer val, remove all occurrences of val in nums in-place.
 The relative order of the elements may be changed.
 Since it is impossible to change the length of the array in some languages, you must instead have the result be
@@ -43,15 +47,63 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 
 Constraints:
-
 0 <= nums.length <= 100
 0 <= nums[i] <= 50
 0 <= val <= 100
 """
 
-from typing import List
+from typing import List, Tuple
 
 
 class Solution:
-    def removeElement(self, nums: List[int], val: int) -> int:
-        pass
+    def remove_element(self, nums: List[int], val: int) -> Tuple[int, List[int]]:
+        k = 0
+        len_nums = len(nums)
+
+        left, right = 0, len_nums - 1
+
+        while left <= right:
+            if nums[left] != val:
+                left += 1
+                k += 1
+            else:
+                nums[left] = nums[right]
+                right -= 1
+
+        return k, nums
+
+
+def _main():
+    Solution()
+    my_test_cases = [
+        {
+            'nums': [3, 2, 2, 3],
+            'val': 3,
+            'expected_len': 2,
+            'expected_nums': [2, 2, 0, 0],
+        },
+        {
+            'nums': [0, 1, 2, 2, 3, 0, 4, 2],
+            'val': 2,
+            'expected_len': 5,
+            'expected_nums': [0, 1, 4, 0, 3, 0, 0, 0],
+        },
+    ]
+
+    for i, test_case in enumerate(my_test_cases):
+        print('\n--------------------------\n')
+        print(f'Test case {i}: {test_case}')
+        result_len, result_nums = Solution().remove_element(nums=test_case['nums'], val=test_case['val'])
+        print(f'Result: {result_len = }, {result_nums = }')
+        try:
+            assert result_len == test_case['expected_len']
+            for n in range(result_len):
+                assert result_nums[n] == test_case['expected_nums'][n]
+            print(f'Test case {i}: Pass')
+        except AssertionError:
+            print(f'Error: Expected {test_case["expected_len"] = }, but got {result_len}')
+            print(f'Error: Expected {test_case["expected_nums"] = }, but got {result_nums}')
+
+
+if __name__ == '__main__':
+    _main()
