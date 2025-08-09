@@ -1,0 +1,92 @@
+# tags: Array, Dynamic Programming, Greedy
+
+"""
+122. Best Time to Buy and Sell Stock II
+
+You are given an integer array prices where prices[i] is the price of a given stock on the ith day.
+On each day, you may decide to buy and/or sell the stock.
+You can only hold at most one share of the stock at any time.
+However, you can buy it then immediately sell it on the same day.
+
+Find and return the maximum profit you can achieve.
+
+Example 1:
+Input: prices = [7,1,5,3,6,4]
+Output: 7
+Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.
+Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
+Total profit is 4 + 3 = 7.
+
+Example 2:
+Input: prices = [1,2,3,4,5]
+Output: 4
+Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.
+Total profit is 4.
+
+Example 3:
+Input: prices = [7,6,4,3,1]
+Output: 0
+Explanation: There is no way to make a positive profit, so we never buy the stock to achieve the maximum profit of 0.
+
+Constraints:
+1 <= prices.length <= 3 * 104
+0 <= prices[i] <= 104
+"""
+from typing import List
+
+from jedi.inference.gradual.typing import Tuple
+
+
+class Solution:
+    @classmethod
+    def max_profit(cls, prices: List[int]) -> int:
+
+        if len(prices) < 2:
+            return 0
+
+        profit = 0
+
+        for i in range(len(prices) - 1):
+            curr_val = prices[i]
+            next_val = prices[i + 1]
+            if curr_val < next_val:
+                profit += next_val - curr_val
+
+        return profit
+
+
+def _main():
+    Solution()
+    my_test_cases = [
+        {
+            'prices': [7, 1, 5, 3, 6, 4],
+            'expected': 7
+        },
+        {
+            'prices': [7, 6, 4, 3, 1],
+            'expected': 0
+        },
+        {
+            'prices': [6, 6, 2, 6, 6, 1, 4, 0, 7, 2, 10],
+            'expected': 22
+        },
+        {
+            'prices': [3, 2, 1, 2, 3, 4, 3, 2, 3, 4, 5],
+            'expected': 6
+        },
+    ]
+
+    for i, test_case in enumerate(my_test_cases):
+        print('\n--------------------------\n')
+        print(f'Test case {i}: {test_case}')
+        result = Solution().max_profit(prices=test_case['prices'])
+        print(f'Result: {result}')
+        try:
+            assert result == test_case['expected']
+            print(f'Test case {i}: Pass')
+        except AssertionError:
+            print(f'Error: Expected {test_case["expected"]}, but got {result}')
+
+
+if __name__ == '__main__':
+    _main()
