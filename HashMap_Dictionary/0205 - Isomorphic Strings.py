@@ -44,9 +44,6 @@ class Solution:
         letter_substitution_map = {}
 
         for i in range(len(s)):
-            # if (s[i] in letter_substitution_map) or (t[i] in letter_substitution_map):
-            # if s[i] in letter_substitution_map.keys():
-            #     pass
             if s[i] not in letter_substitution_map.keys():
                 if t[i] not in letter_substitution_map.values():
                     letter_substitution_map[s[i]] = t[i]
@@ -54,20 +51,6 @@ class Solution:
                     letter_substitution_map[s[i]] = s[i]
                 else:
                     return False
-
-
-            # if s[i] in letter_substitution_map.keys():
-            #     pass
-            # else: # s[i] not in letter_substitution_map.keys()
-            #     if t[i] not in letter_substitution_map.values():
-            #         letter_substitution_map[s[i]] = t[i]
-            #     else: # t[i] is in letter_substitution_map.values(), then either t[i] == s[i] or t[i] != s[i]
-            #         if s[i] != t[i]:
-            #
-            #         else:
-            #             return False
-
-
 
             if letter_substitution_map[s[i]] != t[i]:
                 return False
